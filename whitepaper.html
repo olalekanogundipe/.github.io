@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O-Lang Whitepaper | Semantic Governance Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #111827;
+  --secondary: #1e40af;
+  --accent: #8b5cf6;
+  --light: #f9fafb;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --success: #10b981;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box }
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.8;
+  color: var(--primary);
+  background: var(--light);
+  padding: 100px 10% 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.dark-mode {
+  background: #050505;
+  color: #f5f5f5;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode nav {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+nav .logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+body.dark-mode nav .logo {
+  color: #fff;
+}
+
+nav .links {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+body.dark-mode nav a {
+  color: #aaa;
+}
+
+body.dark-mode nav a:hover {
+  color: #fff;
+}
+
+.mode-toggle {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border);
+}
+
+.mode-toggle:hover {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+body.dark-mode .mode-toggle {
+  color: #aaa;
+  border-color: #333;
+}
+
+body.dark-mode .mode-toggle:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+body.dark-mode h1 {
+  color: #fff;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  margin: 20px auto 40px;
+  border-radius: 2px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 40px 0 20px;
+  color: var(--primary);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+
+body.dark-mode h2 {
+  color: #fff;
+  border-bottom-color: #1a1a1a;
+}
+
+h2::before {
+  content: '§ ';
+  color: var(--secondary);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 30px 0 15px;
+  color: var(--secondary);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--gray);
+}
+
+body.dark-mode p {
+  color: #aaa;
+}
+
+strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+body.dark-mode strong {
+  color: #fff;
+}
+
+em {
+  font-style: italic;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+ul, ol {
+  margin: 20px 0 20px 30px;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 10px;
+  color: var(--gray);
+}
+
+body.dark-mode li {
+  color: #aaa;
+}
+
+li::marker {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--secondary);
+  padding: 20px 30px;
+  margin: 30px 0;
+  background: rgba(30, 64, 175, 0.03);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--secondary);
+}
+
+body.dark-mode blockquote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: #666;
+  color: #aaa;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 30px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode table {
+  background: #0c0c0c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+th {
+  background: var(--secondary);
+  color: white;
+  font-weight: 700;
+  padding: 16px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--gray);
+}
+
+body.dark-mode td {
+  border-bottom-color: #1a1a1a;
+  color: #aaa;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(30, 64, 175, 0.03);
+}
+
+body.dark-mode tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.highlight {
+  background: linear-gradient(120deg, rgba(30, 64, 175, 0.1), rgba(139, 92, 246, 0.1));
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px 0;
+  border-left: 4px solid var(--secondary);
+}
+
+body.dark-mode .highlight {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+  border-left-color: #333;
+}
+
+.highlight h3 {
+  color: var(--secondary);
+  margin-top: 0;
+}
+
+.certification-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 0.25rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 80px 5% 40px;
+  }
+  
+  nav {
+    padding: 15px 5%;
+  }
+  
+  h1 {
+    font-size: 2.75rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav .links {
+    gap: 15px;
+    font-size: 0.85rem;
+  }
+  
+  body {
+    padding: 70px 4% 30px;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  td, th {
+    padding: 10px 12px;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">O-Lang</div>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="index.html#protocol">Protocol</a>
+    <a href="blog.html">Blog</a>
+    <button class="mode-toggle" id="modeToggle">Switch Mode</button>
+  </div>
+</nav>
+
+<a href="index.html" class="back-link">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+  </svg>
+  Back to Home
+</a>
+
+<h1>O-Lang Whitepaper</h1>
+<h2 style="text-align:center;border:none;margin-top:10px;font-size:1.25rem;color:var(--gray);font-weight:500">
+Semantic Governance Protocol for Safe, Auditable AI Systems
+</h2>
+
+<h2>Executive Summary</h2>
+<p><strong>O-Lang</strong> is an open semantic governance protocol that provides a runtime-enforced boundary separating intent from execution in AI systems. Every capability invocation is mediated against explicit policy rather than developer trust, transforming AI from autonomous agents into governable, certifiable workflows.</p>
+
+<p>This whitepaper outlines the architectural principles, trust mechanisms, governance framework, and strategic roadmap for O-Lang as foundational infrastructure for safe AI adoption in regulated domains.</p>
+
+<div class="highlight">
+  <h3>Core Innovations</h3>
+  <ul>
+    <li><strong>Runtime-Enforced Policy:</strong> Kernel mediates every capability invocation against explicit governance rules</li>
+    <li><strong>Portable Execution Format:</strong> Workflows execute identically across compliant implementations</li>
+    <li><strong>Auditable Execution Traces:</strong> Cryptographically-verifiable logs of every action for compliance</li>
+    <li><strong>Resolver Certification:</strong> Third-party verified implementations with transparent conformance testing</li>
+  </ul>
+</div>
+
+<h2>1. Vision & Motivation</h2>
+<h3>1.1 The Problem: Structural Unsafety of Autonomous Agents</h3>
+<p>Current AI architectures operate inside application code where developer authority equals execution authority. This creates fundamental risks:</p>
+<ul>
+  <li><strong>Un-governable Execution:</strong> Agents can bypass constraints by modifying their own code or tool selection</li>
+  <li><strong>Opaque Decision-Making:</strong> No verifiable audit trail of capability invocations</li>
+  <li><strong>Platform Dependency:</strong> Systems locked to vendor infrastructure with no migration path</li>
+  <li><strong>Regulatory Non-Compliance:</strong> Impossible to satisfy GDPR Article 22, HIPAA, or financial audit requirements</li>
+</ul>
+
+<h3>1.2 The Solution: Semantic Governance as Substrate</h3>
+<p>O-Lang moves governance outside application logic into a runtime-enforced substrate. The protocol establishes:</p>
+<ul>
+  <li><strong>Intent-Execution Separation:</strong> Clear boundary between workflow definition and capability invocation</li>
+  <li><strong>Policy Mediation:</strong> Kernel enforces governance rules before any capability executes</li>
+  <li><strong>Resolver Allowlists:</strong> Only certified capabilities can be invoked (no dynamic tool creation)</li>
+  <li><strong>Deterministic Traces:</strong> Identical inputs produce identical, verifiable execution logs</li>
+</ul>
+
+<blockquote>
+  "O-Lang is infrastructure, not application. Governance isn't an afterthought — it's the substrate upon which AI systems are built."
+</blockquote>
+
+<h2>2. Protocol Architecture</h2>
+<h3>2.1 Core Components</h3>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Description</th>
+        <th>Security Property</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Workflow Specification</strong></td>
+        <td>Declarative definition of steps, inputs, outputs, and policy constraints</td>
+        <td>Immutable intent — cannot be modified at runtime</td>
+      </tr>
+      <tr>
+        <td><strong>Execution Kernel</strong></td>
+        <td>Runtime environment that enforces policy before capability invocation</td>
+        <td>Mediation boundary — no capability executes without kernel approval</td>
+      </tr>
+      <tr>
+        <td><strong>Resolver Layer</strong></td>
+        <td>Certified implementations of capabilities (HTTP, LLM, database, etc.)</td>
+        <td>Conformance-tested — only pre-approved capabilities permitted</td>
+      </tr>
+      <tr>
+        <td><strong>Audit Trail</strong></td>
+        <td>Cryptographically-signed execution logs with inputs/outputs/timestamps</td>
+        <td>Verifiable by third parties without trusting node operators</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>2.2 Technical Guarantees</h3>
+<p>The O-Lang protocol specification defines non-negotiable properties:</p>
+<ul>
+  <li><strong>Deterministic Execution:</strong> Identical workflow + inputs → identical trace across all compliant kernels</li>
+  <li><strong>Symbol Validity:</strong> All invoked capabilities must be declared in resolver allowlist</li>
+  <li><strong>No Dynamic Code Generation:</strong> Workflows cannot generate/execute code at runtime</li>
+  <li><strong>Policy Precedence:</strong> Kernel mediation occurs before resolver execution — no bypass possible</li>
+  <li><strong>Conformance Certification:</strong> Kernels/resolvers must pass public test suites to claim compliance</li>
+</ul>
+
+<h2>3. Trust & Certification Framework</h2>
+<h3>3.1 Resolver Certification</h3>
+<p>Trust in O-Lang systems derives from transparent certification — not economic incentives:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Certification Tier</th>
+        <th>Requirements</th>
+        <th>Badge</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Community Verified</strong></td>
+        <td>Passes public conformance test suite; open-source implementation</td>
+        <td><span class="certification-badge">O-Lang Verified</span></td>
+      </tr>
+      <tr>
+        <td><strong>Foundation Certified</strong></td>
+        <td>Third-party security audit; penetration testing; 99.9% test pass rate</td>
+        <td><span class="certification-badge">O-Lang Certified</span></td>
+      </tr>
+      <tr>
+        <td><strong>Regulatory Approved</strong></td>
+        <td>Domain-specific validation (HIPAA, GDPR, PCI-DSS); annual recertification</td>
+        <td><span class="certification-badge">O-Lang Regulated</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Certification process:</p>
+<ol>
+  <li>Developer implements resolver against O-Lang specification</li>
+  <li>Run public conformance test suite (<code>@o-lang/conformance</code> on npm)</li>
+  <li>Submit passing results + implementation to O-Lang Foundation</li>
+  <li>Foundation conducts security review (2–4 weeks)</li>
+  <li>Upon approval: resolver added to official allowlist + badge issued</li>
+</ol>
+
+<h3>3.2 Sustainable Stewardship</h3>
+<p>O-Lang development is funded through institutional mechanisms aligned with long-term safety:</p>
+<ul>
+  <li><strong>Enterprise Certification Services:</strong> Fee-based security audits for commercial resolvers ($5k–$50k)</li>
+  <li><strong>Support Contracts:</strong> Annual retainers for regulated deployments (healthcare, finance)</li>
+  <li><strong>Foundation Grants:</strong> Non-profit funding from aligned institutions (no token sales)</li>
+  <li><strong>Resolver Marketplace:</strong> 5% transaction fee on commercial resolver usage (optional)</li>
+</ul>
+
+<blockquote>
+  "O-Lang's sustainability model prioritizes institutional trust over speculation. We fund safety through services — not token economics."
+</blockquote>
+
+<h2>4. Governance Framework</h2>
+<h3>4.1 RFC Process (IETF Model)</h3>
+<p>O-Lang evolves through transparent, expert-driven consensus — not token voting:</p>
+<ol>
+  <li><strong>Problem Statement:</strong> Public GitHub issue describing limitation/need (no approval required)</li>
+  <li><strong>Working Group Formation:</strong> Implementers, auditors, and domain experts collaborate on solution</li>
+  <li><strong>Specification Draft:</strong> Concrete proposal with conformance test requirements</li>
+  <li><strong>Implementation & Testing:</strong> ≥2 independent kernel implementations must pass test suite</li>
+  <li><strong>Ratification:</strong> O-Lang Foundation ratifies spec after successful real-world deployment</li>
+  <li><strong>Deprecation Window:</strong> 12-month notice before removing/altering existing semantics</li>
+</ol>
+
+<h3>4.2 Domain-Specific Oversight</h3>
+<p>Safety-critical domains require expert review beyond general consensus:</p>
+<ul>
+  <li><strong>Healthcare Working Group:</strong> Medical professionals validate patient data workflows</li>
+  <li><strong>Financial Services Group:</strong> Compliance officers review transaction safety boundaries</li>
+  <li><strong>African Context Group:</strong> Local builders ensure relevance to resource-constrained environments</li>
+</ul>
+
+<p>Governance follows an IETF-style RFC consensus process among implementers, auditors, and domain experts globally. The planned <strong>O-Lang Foundation</strong> — to be established as a Nigeria-based non-profit steward — will serve with a narrowly-scoped safety mandate: rejecting specification changes that demonstrably violate core safety properties (deterministic execution, policy mediation precedence, auditable traces). This geographic grounding reflects O-Lang's foundational principle: when AI systems operate in contexts where failure directly impacts human dignity and livelihood — with minimal safety buffers — architectural safety boundaries become non-negotiable. The resulting rigor in policy mediation and auditability benefits all regulated domains globally, from Lagos clinics to London banks. All rejection decisions will include published technical rationale and remain subject to override by a 2/3 majority of domain working groups spanning healthcare, finance, and global contexts. No voting tokens exist; safety is enforced through architectural constraints, not economic mechanisms.</p>
+<h2>5. Strategic Roadmap</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Timeline</th>
+        <th>Key Deliverables</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Phase I</strong></td>
+        <td>Q1–Q2 2026</td>
+        <td>O-Lang 1.0 specification finalization; JavaScript/Python conformance suites; 5 certified resolvers (HTTP, email, LLM, database, file)</td>
+      </tr>
+      <tr>
+        <td><strong>Phase II</strong></td>
+        <td>Q3–Q4 2026</td>
+        <td>Regulated domain pilots (Nigerian healthcare workflows); Resolver certification program launch; O-Lang Foundation incorporation</td>
+      </tr>
+      <tr>
+        <td><strong>Phase III</strong></td>
+        <td>2027</td>
+        <td>Enterprise tooling (visual workflow designer); Resolver marketplace with certification badges; Integration with national ID/OAuth systems</td>
+      </tr>
+      <tr>
+        <td><strong>Phase IV</strong></td>
+        <td>2028+</td>
+        <td>W3C/IETF standardization submission; National policy adoption (public-sector AI requirements); University curriculum integration across Africa</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>6. Conclusion</h2>
+<p>O-Lang addresses the fundamental challenge of AI adoption in regulated domains: <em>How do we make AI systems governable without sacrificing utility?</em></p>
+
+<p>The answer is not better agents — it's better boundaries. By moving governance into a runtime-enforced substrate, O-Lang enables multi-step, tool-using intelligence while eliminating structural unsafety. Workflows can appear agent-like to end users while remaining fully auditable, policy-compliant, and institutionally trustworthy.</p>
+
+<p>This is infrastructure for the post-platform era — where intelligence flows across provider boundaries while remaining under human policy control. No tokens. No speculation. Just verifiable safety guarantees that work inside existing institutional infrastructure.</p>
+
+<p><strong>Building from Africa, for the world.</strong></p>
+
+<div style="margin-top:60px;padding-top:40px;border-top:1px solid var(--border);text-align:center;color:var(--gray);font-size:0.95rem">
+  <p>© 2026 O-Lang Foundation — A Nigeria-registered non-profit stewarding semantic governance infrastructure</p>
+  <p style="margin-top:10px">Author: Olalekan Ogundipe | Founder & Protocol Architect</p>
+  <p style="margin-top:5px;font-size:0.9rem">Specification source: <a href="https://github.com/O-Lang-Central/spec" style="color:var(--secondary);text-decoration:underline">github.com/O-Lang-Central/spec</a> | Conformance tests: <a href="https://www.npmjs.com/package/@o-lang/conformance" style="color:var(--secondary);text-decoration:underline">npmjs.com/@o-lang/conformance</a></p>
+</div>
+
+<script>
+const modeToggle = document.getElementById('modeToggle');
+
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  modeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+});
+
+// Check URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('mode') === 'protocol') {
+  document.body.classList.add('dark-mode');
+  modeToggle.textContent = 'Light Mode';
+}
+</script>
+</body>
+</html>

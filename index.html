@@ -1,0 +1,886 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO & Meta Tags -->
+<title>Olalekan Ogundipe (Olami Carter) | Creator of O-Lang Protocol</title>
+<meta name="description" content="Olalekan Ogundipe (writing as Olami Carter) is the creator of O-Lang Protocol (open semantic governance for AI), author of The Infinite Enterprise, and founder of Recode Africa Initiative.">
+<meta name="keywords" content="Olalekan Ogundipe, Olami Carter, O-Lang Protocol, AI governance, semantic AI, The Infinite Enterprise, Recode Africa, AI ethics, Africa tech">
+<meta name="author" content="Olalekan Ogundipe">
+<link rel="canonical" href="https://olalekanogundipe.github.io/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Olalekan Ogundipe | O-Lang Protocol Creator">
+<meta property="og:description" content="Open semantic governance protocol for safe, auditable AI systems. Created by Olalekan Ogundipe (Olami Carter).">
+<meta property="og:url" content="https://olalekanogundipe.github.io/">
+<meta property="og:image" content="https://olalekanogundipe.github.io/images/profile/profile.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Olalekan Ogundipe | O-Lang Protocol">
+<meta name="twitter:description" content="AI governance protocol creator & author of The Infinite Enterprise.">
+<meta name="twitter:image" content="https://olalekanogundipe.github.io/images/profile/profile.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Structured Data (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Olalekan Ogundipe",
+  "alternateName": "Olami Carter",
+  "url": "https://olalekanogundipe.github.io",
+  "image": "https://olalekanogundipe.github.io/images/profile/profile.jpg",
+  "jobTitle": "AI Engineer & Protocol Creator",
+  "description": "Creator of O-Lang Protocol and author of The Infinite Enterprise (writing as Olami Carter).",
+  "knowsAbout": ["Artificial Intelligence", "Semantic Governance", "AI Ethics", "Protocol Design", "Africa Tech"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "O-Lang Protocol"
+  },
+  "author": {
+    "@type": "Book",
+    "name": "The Infinite Enterprise",
+    "author": "Olami Carter"
+  },
+  "founder": {
+    "@type": "Organization",
+    "name": "Recode Africa Initiative"
+  },
+  "sameAs": [
+    "https://github.com/olalekanogundipe",
+    "https://www.linkedin.com/in/olalekan-ogundipe-1676a0b8/"
+  ]
+}
+</script>
+
+<style>
+:root {
+  --primary: #111827;
+  --secondary: #1e40af;
+  --accent: #8b5cf6;
+  --light: #f9fafb;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --success: #10b981;
+  --ngo-green: #047857;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box }
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--primary);
+  background: var(--light);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: #050505;
+  color: #f5f5f5;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==============================
+   NAVIGATION - DUAL MODE
+============================== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode nav {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+nav .logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode nav .logo {
+  color: #fff;
+}
+
+nav .links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+body.dark-mode nav a {
+  color: #aaa;
+}
+
+body.dark-mode nav a:hover {
+  color: #fff;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+body.dark-mode nav a::after {
+  background: #fff;
+}
+
+.mode-toggle {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border);
+}
+
+.mode-toggle:hover {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+body.dark-mode .mode-toggle {
+  color: #aaa;
+  border-color: #333;
+}
+
+body.dark-mode .mode-toggle:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* ==============================
+   HERO SECTION - PROFILE MODE
+============================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 10%;
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  color: var(--gray);
+  margin-top: 1.5rem;
+  max-width: 700px;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  background: rgba(30, 64, 175, 0.05);
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.cta {
+  margin-top: 2.5rem;
+  padding: 14px 40px;
+  border: 2px solid var(--secondary);
+  border-radius: 40px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--secondary), #1d4ed8);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.2);
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+  background: linear-gradient(135deg, #1d4ed8, var(--secondary));
+}
+
+.cta svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==============================
+   HERO SECTION - PROTOCOL MODE
+============================== */
+body.dark-mode .hero {
+  background: radial-gradient(circle, #111, #050505);
+  min-height: 100vh;
+  padding: 0 10%;
+}
+
+body.dark-mode .hero h1 {
+  font-size: 4rem;
+  letter-spacing: -2px;
+  background: linear-gradient(90deg, #fff, #777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .hero p {
+  color: #aaa;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+body.dark-mode .hero-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cta {
+  border-color: #fff;
+  background: transparent;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cta:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+}
+
+/* ==============================
+   CONTENT SECTIONS
+============================== */
+section {
+  padding: 100px 10%;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode section {
+  background: #0a0a0a;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode section h2 {
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .card {
+  background: #0c0c0c;
+  border-color: #111;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(30, 64, 175, 0.3);
+}
+
+body.dark-mode .card:hover {
+  border-color: #333;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .card h3 {
+  color: #fff;
+}
+
+.card p {
+  color: var(--gray);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+body.dark-mode .card p {
+  color: #aaa;
+}
+
+/* ==============================
+   TOKENOMICS
+============================== */
+.tokenomics {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bar {
+  height: 40px;
+  margin: 20px 0;
+  background: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark-mode .bar {
+  background: #111;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  width: 0%;
+  transition: width 1.5s ease;
+  border-radius: 20px;
+}
+
+body.dark-mode .fill {
+  background: linear-gradient(90deg, #fff, #666);
+}
+
+/* ==============================
+   TIMELINE
+============================== */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline div {
+  margin-bottom: 40px;
+  padding-left: 30px;
+  border-left: 3px solid var(--secondary);
+  opacity: 0.4;
+  transition: all 0.6s ease;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+body.dark-mode .timeline div {
+  border-left-color: #333;
+  color: #aaa;
+}
+
+.timeline div::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--secondary);
+  border-radius: 50%;
+}
+
+body.dark-mode .timeline div::before {
+  background: #333;
+}
+
+.timeline div.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==============================
+   FOUNDER SECTION
+============================== */
+.founder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.founder img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--secondary);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.2);
+}
+
+body.dark-mode .founder img {
+  border-color: #222;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.founder img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(30, 64, 175, 0.3);
+}
+
+.founder-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+body.dark-mode .founder-content h3 {
+  color: #fff;
+}
+
+.founder-content p {
+  color: var(--gray);
+  margin-top: 10px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+body.dark-mode .founder-content p {
+  color: #aaa;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+.footer {
+  text-align: center;
+  padding: 60px 10%;
+  color: var(--gray);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+body.dark-mode .footer {
+  color: #666;
+  border-top-color: #1a1a1a;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 1024px) {
+  nav {
+    padding: 15px 5%;
+  }
+  
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+  
+  body.dark-mode .hero h1 {
+    font-size: 3rem;
+  }
+  
+  section {
+    padding: 80px 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav .links {
+    gap: 15px;
+    font-size: 0.85rem;
+  }
+  
+  .hero {
+    padding: 0 5%;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  
+  body.dark-mode .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .founder {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .founder img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 12px 4%;
+  }
+  
+  nav .logo {
+    font-size: 1.1rem;
+  }
+  
+  nav .links {
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  body.dark-mode .hero h1 {
+    font-size: 2.25rem;
+  }
+  
+  .cta {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+  
+  section {
+    padding: 60px 4%;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+  <div class="logo">O-Lang</div>
+  <div class="links">
+    <a href="#protocol">Protocol</a>
+    <a href="#governance">Governance</a>
+    <a href="blog.html">Blog</a>
+    <a href="whitepaper.html">Whitepaper</a>
+    <button class="mode-toggle" id="modeToggle">Switch to Protocol</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg style="width:16px;height:16px;margin-right:8px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+    </svg>
+    AI Engineer & Author
+  </div>
+  <h1>Olalekan Ogundipe</h1>
+  <!-- Updated with Pen Name -->
+  <p>Creator of O-Lang Protocol — an open semantic governance protocol for safe, auditable AI systems. Author of <em>The Infinite Enterprise</em> (writing as <strong>Olami Carter</strong>). Founder of Recode Africa Initiative.</p>
+  <a href="#protocol" class="cta">
+    Explore O-Lang Protocol
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+    </svg>
+  </a>
+</section>
+
+<!-- Protocol Section -->
+<section id="protocol">
+  <h2>Protocol Architecture</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Composable Core</h3>
+      <p>O-Lang provides a runtime-enforced boundary separating intent from execution. Every capability invocation is mediated against explicit policy, not developer trust. Modular primitives for decentralized intelligence and AI governance.</p>
+    </div>
+    <div class="card">
+      <h3>Governance Layer</h3>
+      <p>Programmable coordination beyond centralized authority. Runtime-enforced policy mediation ensures every AI action is auditable and compliant with explicit governance rules. Designed for regulated domains and institutional adoption.</p>
+    </div>
+    <div class="card">
+      <h3>Global Expansion</h3>
+      <p>Portable execution format designed for venture-scale institutional adoption. Auditable execution traces enable transparency and compliance across jurisdictions. Built for global programmable coordination systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Governance Section -->
+<section id="governance">
+  <h2>Governance Framework</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>RFC Process</h3>
+      <p>Transparent specification evolution through IETF-style Request for Comments. Proposals undergo public review by implementers, auditors, and domain experts before ratification.</p>
+    </div>
+    <div class="card">
+      <h3>Domain Working Groups</h3>
+      <p>Expert-led oversight for safety-critical domains: healthcare, finance, and public sector. Working groups include mandatory global representation — ensuring perspectives from resource-constrained environments inform safety boundaries for all users worldwide.</p>  
+    </div>
+    <div class="card">
+      <h3>Resolver Certification</h3>
+      <p>Third-party verified implementations with public conformance testing. Certified resolvers appear in official allowlists; uncertified implementations cannot execute workflows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap Section -->
+<section>
+  <h2>Strategic Roadmap</h2>
+  <div class="timeline">
+    <div>Phase I — Core Protocol Launch & Specification Finalization</div>
+    <div>Phase II — Governance Activation & Community Onboarding</div>
+    <div>Phase III — Global Node Expansion & Enterprise Integration</div>
+    <div>Phase IV — Institutional Adoption & Cross-Chain Interoperability</div>
+  </div>
+</section>
+
+<!-- Founder Section -->
+<section>
+  <h2>Founder</h2>
+  <div class="founder">
+    <img src="images/profile/profile.jpg" alt="Olalekan Ogundipe, creator of O-Lang Protocol and author of The Infinite Enterprise">
+    <div class="founder-content">
+      <h3>Olalekan Ogundipe</h3>
+      <!-- Updated with Pen Name -->
+      <p style="color:var(--gray);margin-top:10px">
+        Creator of O-Lang Protocol. Architect of sovereign protocol infrastructure focused on decentralized governance and global programmable coordination. Author of <em>The Infinite Enterprise</em> (writing as <strong>Olami Carter</strong>). Founder, Recode Africa Initiative.
+      </p>
+      <a href="profile.html" class="cta">
+        View Full Profile
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Investor Relations -->
+<section style="text-align:center">
+  <h2>Strategic Positioning</h2>
+  <p style="color:var(--gray);max-width:700px;margin:auto;font-size:1.05rem;line-height:1.8">
+    O-Lang is positioned as foundational protocol infrastructure for decentralized coordination systems. Building from Africa, for the world — creating pathways for global builders to shape trustworthy AI infrastructure.
+  </p>
+  <a href="whitepaper.html" class="cta" style="margin-top:30px">
+    Download Whitepaper
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+    </svg>
+  </a>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+  <p>© 2026 O-Lang Protocol — Founded by Olalekan Ogundipe (Olami Carter). Building from Africa, for the world.</p>
+</div>
+
+<script>
+// Mode Toggle Functionality
+const modeToggle = document.getElementById('modeToggle');
+let isProtocolMode = false;
+
+function switchToProtocolMode() {
+  document.body.classList.add('dark-mode');
+  modeToggle.textContent = 'Switch to Profile';
+  isProtocolMode = true;
+  document.querySelector('.hero h1').textContent = 'O-Lang';
+  document.querySelector('.hero p').textContent = 'Sovereign Infrastructure for Post-Platform Systems';
+  document.querySelector('.hero-badge').style.display = 'none';
+}
+
+function switchToProfileMode() {
+  document.body.classList.remove('dark-mode');
+  modeToggle.textContent = 'Switch to Protocol';
+  isProtocolMode = false;
+  document.querySelector('.hero h1').textContent = 'Olalekan Ogundipe';
+  document.querySelector('.hero p').innerHTML = 'Creator of O-Lang Protocol — an open semantic governance protocol for safe, auditable AI systems. Author of <em>The Infinite Enterprise</em> (writing as <strong>Olami Carter</strong>). Founder of Recode Africa Initiative.';
+  document.querySelector('.hero-badge').style.display = 'inline-flex';
+}
+
+modeToggle.addEventListener('click', () => {
+  if (isProtocolMode) {
+    switchToProfileMode();
+  } else {
+    switchToProtocolMode();
+  }
+});
+
+// Animate tokenomics bars on scroll
+function animateBars() {
+  document.querySelectorAll('.fill').forEach(bar => {
+    const width = bar.getAttribute('data-width');
+    bar.style.width = width + '%';
+  });
+}
+
+// Timeline animation on scroll
+function animateTimeline() {
+  document.querySelectorAll('.timeline div').forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+    
+    if (position < screenPosition) {
+      el.classList.add('visible');
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(0)';
+    }
+  });
+}
+
+// Initialize animations
+window.addEventListener('load', () => {
+  setTimeout(animateBars, 300);
+});
+
+window.addEventListener('scroll', animateTimeline);
+
+// URL parameter handling
+const urlParams = new URLSearchParams(window.location.search);
+const mode = urlParams.get('mode');
+
+if (mode === 'protocol') {
+  switchToProtocolMode();
+}
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

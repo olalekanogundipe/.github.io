@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Olalekan Ogundipe | Full Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #111827;
+  --secondary: #1e40af;
+  --accent: #8b5cf6;
+  --light: #f9fafb;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+  --ngo-green: #047857;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box }
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  color: var(--primary);
+  background: var(--light);
+  padding: 100px 10% 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.dark-mode {
+  background: #050505;
+  color: #f5f5f5;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode nav {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+nav .logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+body.dark-mode nav .logo {
+  color: #fff;
+}
+
+nav .links {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+body.dark-mode nav a {
+  color: #aaa;
+}
+
+body.dark-mode nav a:hover {
+  color: #fff;
+}
+
+.mode-toggle {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border);
+}
+
+.mode-toggle:hover {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+body.dark-mode .mode-toggle {
+  color: #aaa;
+  border-color: #333;
+}
+
+body.dark-mode .mode-toggle:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+  transform: translateX(4px);
+}
+
+.profile-header {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.profile-image {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--secondary);
+  box-shadow: 0 15px 40px rgba(30, 64, 175, 0.2);
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.profile-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+body.dark-mode .profile-content h1 {
+  color: #fff;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  background: rgba(30, 64, 175, 0.05);
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.profile-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+body.dark-mode .profile-content p {
+  color: #aaa;
+}
+
+.section {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+body.dark-mode .section {
+  border-bottom-color: #1a1a1a;
+}
+
+.section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.dark-mode .section h2 {
+  color: #fff;
+}
+
+.section h2::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  border-radius: 4px;
+}
+
+/* --- NEW SERVICES GRID STYLES --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .service-card {
+  background: #0c0c0c;
+  border-color: #1a1a1a;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--secondary);
+}
+
+body.dark-mode .service-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--secondary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .service-card h3 {
+  color: #fff;
+}
+
+.service-card p {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+body.dark-mode .service-card p {
+  color: #aaa;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+body.dark-mode .service-list li {
+  color: #aaa;
+}
+
+.service-list li::before {
+  content: '•';
+  color: var(--secondary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+/* ------------------------------- */
+
+.book-showcase {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+}
+
+body.dark-mode .book-showcase {
+  background: #0c0c0c;
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+  flex: 0 0 280px;
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+body.dark-mode .book-details h3 {
+  color: #fff;
+}
+
+.book-details p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+body.dark-mode .book-details p {
+  color: #aaa;
+}
+
+.book-details p:last-child {
+  font-style: italic;
+  color: var(--secondary);
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.buy-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--secondary), #1d4ed8);
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.2);
+}
+
+.buy-book-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+}
+
+.buy-book-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.buy-book-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.ngo-section {
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.05) 0%, rgba(255,255,255,0) 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+body.dark-mode .ngo-section {
+  background: linear-gradient(135deg, rgba(4, 120, 87, 0.03) 0%, rgba(0,0,0,0) 100%);
+  border-color: #1a1a1a;
+}
+
+.ngo-logo {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.ngo-logo:hover {
+  transform: scale(1.03);
+}
+
+.ngo-tagline {
+  font-size: 1.05rem;
+  color: var(--ngo-green);
+  margin-top: 4px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+body.dark-mode .ngo-tagline {
+  opacity: 0.85;
+}
+body.dark-mode .ngo-header h3 {
+  color: var(--ngo-green);
+}
+
+.youtube-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: white;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .youtube-embed {
+  background: #0c0c0c;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.expectations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.expectation-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--ngo-green);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+}
+
+body.dark-mode .expectation-card {
+  background: #0c0c0c;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.expectation-card h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--ngo-green);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.dark-mode .expectation-card h4 {
+  color: var(--ngo-green);
+}
+
+.expectation-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+body.dark-mode .expectation-card ul {
+  color: #aaa;
+}
+
+.expectation-card li {
+  margin-bottom: 0.5rem;
+}
+
+.offline-work {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  border-left: 4px solid var(--ngo-green);
+}
+
+body.dark-mode .offline-work {
+  background: #0c0c0c;
+}
+
+.offline-work h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--ngo-green);
+}
+
+body.dark-mode .offline-work h4 {
+  color: var(--ngo-green);
+}
+
+.offline-work ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--gray);
+}
+
+body.dark-mode .offline-work ul {
+  color: #aaa;
+}
+
+.offline-work li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.contact-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .contact-item {
+  background: #0c0c0c;
+  border-color: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.contact-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  border-color: rgba(30, 64, 175, 0.2);
+}
+
+.contact-item svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  stroke-width: 1.5;
+}
+
+.contact-item p {
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  color: var(--gray);
+}
+
+body.dark-mode .contact-item p {
+  color: #aaa;
+}
+
+.contact-item a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.contact-item a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .book-showcase {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .book-cover {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 80px 5% 40px;
+  }
+  
+  nav {
+    padding: 15px 5%;
+  }
+  
+  .profile-content h1 {
+    font-size: 2.25rem;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .youtube-embed {
+    padding-bottom: 65%;
+  }
+  
+  .expectations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">O-Lang</div>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="index.html#protocol">Protocol</a>
+    <a href="index.html#governance">Governance</a>
+    <a href="blog.html">Blog</a>
+    <a href="whitepaper.html">Whitepaper</a>
+    <button class="mode-toggle" id="modeToggle">Switch Mode</button>
+  </div>
+</nav>
+
+<a href="index.html" class="back-link">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+  </svg>
+  Back to Home
+</a>
+
+<div class="profile-header">
+  <img src="images/profile/profile.jpg" alt="Olalekan Ogundipe" class="profile-image">
+  <div class="profile-content">
+    <div class="profile-badge">
+      <svg style="width:16px;height:16px;margin-right:8px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+      </svg>
+      AI Engineer & Author
+    </div>
+    <h1>Olalekan Ogundipe</h1>
+    <p>Creator of O-Lang Protocol — an open semantic governance protocol for safe, auditable AI systems. Author of <em>The Infinite Enterprise</em>. Founder of Recode Africa Initiative.</p>
+  </div>
+</div>
+
+<!-- Speaking & Advisory Section -->
+<section class="section">
+  <h2>Speaking & Advisory</h2>
+  <div class="services-grid">
+    
+    <!-- Speaking Card -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+      </div>
+      <h3>Keynotes & Talks</h3>
+      <p>I speak on the intersection of technology, governance, and human potential. Available for conferences, universities, and corporate events.</p>
+      <ul class="service-list">
+        <li>AI Governance & Ethics</li>
+        <li>The Future of AI Adoption in Africa</li>
+        <li>Building Auditable & Safe Systems</li>
+        <li>Semantic Protocols for the Future Web</li>
+      </ul>
+    </div>
+
+    <!-- Consulting Card -->
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+      </div>
+      <h3>Strategic Consulting</h3>
+      <p>I advise organizations on implementing robust, safe, and regulated AI infrastructures that stand the test of time.</p>
+      <ul class="service-list">
+        <li>AI System Auditing & Verification</li>
+        <li>Semantic Governance Implementation</li>
+        <li>Safe AI Adoption Strategies</li>
+        <li>Regulatory Compliance Frameworks</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Book Section -->
+<section class="section">
+  <h2>
+    My Latest book
+  </h2>
+  <div class="book-showcase">
+    <div class="book-cover">
+      <img src="images/book/book.jpg" alt="The Infinite Enterprise book cover">
+    </div>
+    <div class="book-details">
+      <p><em>The Infinite Enterprise</em> is a manifesto on building systems that outlast their creators. It explores the architecture of permanence — how to design organizations, institutions, and technologies that endure beyond individual lifetimes, leadership transitions, and market cycles.</p>
+      <p>This is not a book about AI. It's about the deeper question: <em>What does it mean to build something that matters?</em> Drawing from experiences building in resource-constrained environments, the book argues that true longevity comes from designing for human dignity, institutional resilience, and intergenerational continuity.</p>
+      <p><strong>Now Available:</strong> Read on Kobo and join the conversation on building enduring systems.</p>
+      <a href="https://www.kobo.com/ww/en/ebook/the-infinite-enterprise?sId=7a8144e6-93e7-42bb-9f35-ad6bb453133b&ssId=FPHpPIPpHt0gSBqWZNKYs&cPos=1" target="_blank" class="buy-book-btn">
+        Read Preview on Kobo
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Recode Africa Section -->
+<section class="section">
+  <h2>
+    Recode Africa Initiative
+  </h2>
+  <div class="ngo-section">
+    <div class="ngo-header">
+  <img src="images/logos/recode.png" alt="Recode Africa Logo" class="ngo-logo">
+  <div>
+    <h3>Recode Africa Initiative</h3>
+    <p class="ngo-tagline">Building Africa's next generation of tech builders</p>
+  </div>
+</div>  
+    <p>We're a community making high-impact tech education accessible across Africa — from rural classrooms to global innovation hubs.</p>
+    <p>Whether you're an aspiring developer, an established software engineer or AI innovator in Lagos, Nairobi, Accra, or the diaspora, a tech enthusiast, or a builder of trustworthy technology — this is your community.</p>
+        
+    <p style="margin-top:1rem;font-style:italic;color:var(--primary);">
+      Because the future won't just be built for Africa — it will be built by Africa.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <h2>
+    Connect With Me
+  </h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+      <!-- Email is now hidden behind a link -->
+      <a href="mailto:4olamy1@gmail.com">Email Me</a>
+    </div>
+    
+    <div class="contact-item">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+      </svg>
+      <a href="https://github.com/olalekanogundipe" target="_blank">GitHub</a>
+    </div>
+    
+    <div class="contact-item">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+      </svg>
+      <a href="https://www.linkedin.com/in/olalekan-ogundipe-1676a0b8/" target="_blank">Linkedin</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const modeToggle = document.getElementById('modeToggle');
+
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  modeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+});
+
+// Check URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('mode') === 'protocol') {
+  document.body.classList.add('dark-mode');
+  modeToggle.textContent = 'Light Mode';
+}
+</script>
+</body>
+</html>
